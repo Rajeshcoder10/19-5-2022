@@ -1,0 +1,20 @@
+import math
+n=10000001
+se=[True]*n
+pf=[0]*n
+se[0]=se[1]=False
+x=int(math.sqrt(n))
+for i in range(2,x+1):
+    if se[i]:
+        for j in range(i*i,n,i):
+            se[j]=False
+
+t=int(input())
+while t:
+    t-=1
+    c=0
+    s,e=list(map(int,input().split()))
+    for i in range(s+1,e):
+        if se[i]:
+            c+=1
+    print(c)
